@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 12, 2019 9:07:07 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mypojos.Dailysales" table="dailysales" catalog="fuelstation">
+        <id name="iddailysales" type="java.lang.Integer">
+            <column name="iddailysales" />
+            <generator class="identity" />
+        </id>
+        <property name="fueltyp" type="java.lang.Integer">
+            <column name="fueltyp" />
+        </property>
+        <property name="expence" type="java.lang.Double">
+            <column name="expence" precision="22" scale="0" />
+        </property>
+        <property name="revenue" type="java.lang.Double">
+            <column name="revenue" precision="22" scale="0" />
+        </property>
+        <property name="total" type="java.lang.Double">
+            <column name="total" precision="22" scale="0" />
+        </property>
+        <property name="datesl" type="date">
+            <column name="datesl" length="0" />
+        </property>
+    </class>
+</hibernate-mapping>

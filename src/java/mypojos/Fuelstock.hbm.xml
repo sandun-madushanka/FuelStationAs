@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 12, 2019 9:07:07 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mypojos.Fuelstock" table="fuelstock" catalog="fuelstation">
+        <id name="idfuel" type="java.lang.Integer">
+            <column name="idfuel" />
+            <generator class="identity" />
+        </id>
+        <property name="fueltype" type="java.lang.Integer">
+            <column name="fueltype" />
+        </property>
+        <property name="unitprice" type="java.lang.Double">
+            <column name="unitprice" precision="22" scale="0" />
+        </property>
+        <property name="currentqty" type="java.lang.Double">
+            <column name="currentqty" precision="22" scale="0" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <set name="fuelstockHasUsers" table="fuelstock_has_user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fuelstock_idfuel" not-null="true" />
+            </key>
+            <one-to-many class="mypojos.FuelstockHasUser" />
+        </set>
+        <set name="invoices" table="invoice" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fuelstock_idfuel" not-null="true" />
+            </key>
+            <one-to-many class="mypojos.Invoice" />
+        </set>
+    </class>
+</hibernate-mapping>

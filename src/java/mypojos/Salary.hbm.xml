@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 12, 2019 9:07:07 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mypojos.Salary" table="salary" catalog="fuelstation">
+        <id name="idsalary" type="java.lang.Integer">
+            <column name="idsalary" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="mypojos.User" fetch="select">
+            <column name="user_iduser" not-null="true" />
+        </many-to-one>
+        <property name="othrcount" type="java.lang.Double">
+            <column name="OThrcount" precision="22" scale="0" />
+        </property>
+        <property name="pricepOthr" type="java.lang.Double">
+            <column name="pricepOThr" precision="22" scale="0" />
+        </property>
+        <property name="total" type="java.lang.Double">
+            <column name="total" precision="22" scale="0" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="datecreate" type="date">
+            <column name="datecreate" length="0" />
+        </property>
+    </class>
+</hibernate-mapping>

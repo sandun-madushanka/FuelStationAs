@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 12, 2019 9:07:07 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mypojos.Invoice" table="invoice" catalog="fuelstation">
+        <id name="invoiceid" type="java.lang.Integer">
+            <column name="invoiceid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="fuelstock" class="mypojos.Fuelstock" fetch="select">
+            <column name="fuelstock_idfuel" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="mypojos.User" fetch="select">
+            <column name="user_iduser" not-null="true" />
+        </many-to-one>
+        <property name="qtyintake" type="java.lang.Double">
+            <column name="qtyintake" precision="22" scale="0" />
+        </property>
+        <property name="dateintaken" type="date">
+            <column name="dateintaken" length="0" />
+        </property>
+        <property name="total" type="java.lang.Double">
+            <column name="total" precision="22" scale="0" />
+        </property>
+        <property name="paytype" type="java.lang.Integer">
+            <column name="paytype" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+    </class>
+</hibernate-mapping>
